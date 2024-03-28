@@ -4,7 +4,8 @@ import paho.mqtt.publish as publish
 # MQTT Broker Information for IoT Hub
 mqtt_broker = "mqtt3.thingspeak.com"  # MQTT broker address
 
-iot_topic = "channels/2483692/publish"  # MQTT topic for publishing sensor data
+iot_topic1 = "channels/2483692/publish"  # MQTT topic for publishing sensor data
+iot_topic2 = "channels/ 2486845/publish" # MQTT topic for publishing sensor data
 
 # Unique ID and authentication for the IoT devices
 device_ID =  ["LyASNQQMJQM9MyEROTk6NjM", "PAM8ATkDKR0jLhIHHAMzBhM"]  # Device IDs
@@ -30,7 +31,7 @@ try:
         
         # Publish sensor values to MQTT channel for Device 1
         payload_device_1 = f"field1={temperature}&field2={humidity}&field3={co2}"
-        publish.single(iot_topic, payload_device_1, hostname=mqtt_broker, transport=transport_type, port=mqtt_port, client_id=device_ID[0], auth={'username': device_username[0], 'password': device_password[0]})
+        publish.single(iot_topic1, payload_device_1, hostname=mqtt_broker, transport=transport_type, port=mqtt_port, client_id=device_ID[0], auth={'username': device_username[0], 'password': device_password[0]})
         print(f"Published Device 1: {payload_device_1}")
         
         # Generate sensor values
@@ -38,7 +39,7 @@ try:
         
         # Publish sensor values to MQTT channel for Device 2
         payload_device_2 = f"field1={temperature}&field2={humidity}&field3={co2}"
-        publish.single(iot_topic, payload_device_2, hostname=mqtt_broker, transport=transport_type, port=mqtt_port, client_id=device_ID[1], auth={'username': device_username[1], 'password': device_password[1]})
+        publish.single(iot_topic2, payload_device_2, hostname=mqtt_broker, transport=transport_type, port=mqtt_port, client_id=device_ID[1], auth={'username': device_username[1], 'password': device_password[1]})
         print(f"Published Device 2: {payload_device_2}")
 
 except KeyboardInterrupt:
