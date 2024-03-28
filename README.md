@@ -12,3 +12,7 @@ This script visualizes data from two separate channels. It loads data from CSV f
 Rajaram_Environment_Station_MainCode.py:
 
 This script simulates the behavior of two IoT devices by generating random sensor data for temperature, humidity, and CO2 levels. It publishes the data to an MQTT broker using the Paho MQTT client library.
+
+feed_plotter.py:
+
+This script visualizes data from the two channels together for comparison. It loads data from CSV files, adjusts timestamps, and plots temperature, humidity, and CO2 levels over time for each channel.
